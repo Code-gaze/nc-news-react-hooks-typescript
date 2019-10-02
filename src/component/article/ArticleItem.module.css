@@ -1,0 +1,16 @@
+
+.item{
+  border: 2px solid rgb(122, 194, 144);
+  border-radius: 1em;
+  padding-left: 0.5em; 
+  margin: 0.7em 0.5em 0.7em;
+}
+
+.article{
+  padding-left: 0.5em; 
+  margin: 0.5em 0.5em 0.5em;
+}
+
+.tag{
+ margin: 0.7em 0.4em 0.8em;
+}
