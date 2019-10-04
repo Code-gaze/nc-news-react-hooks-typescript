@@ -3,7 +3,7 @@ export interface ITopic {
   description: string;
 }
 
-export interface article {
+export interface IArticle {
   article_id: number;
   title: string;
   comment_count: number;
