@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import Header from "./component/layout/Header";
-import Footer from "./component/layout/Footer"
+import Footer from "./component/layout/Footer";
 import "./App.css";
 import { UserContext } from "./component/store/UserContext";
 import UserSelect from "./component/layout/UserSelect";
 import { Link, Router } from "@reach/router";
 import Navigation from "./component/layout/Navigation";
+import NotFound from './component/error/NotFound';
+import Route from "./component/types/route"
 
 const App: React.FC = () => {
   const [user, setUser] = useState<string | unknown>("jessjelly");
@@ -28,15 +30,15 @@ const App: React.FC = () => {
         <div className="nav">
           <Navigation />
         </div>
-        {/* <div className="body">
+        <div className="body">
           <Router>
-            <ArticleList path="/topics/:topic" />
-            <UserPage path="/users/:author" />
             <ArticleList path="/" />
-            <ArticlePage path="/articles/:id" />
-            <ErrorMsg default />
+            {/* <ArticleList path="/topics/:topic" /> */}
+            {/* <UserPage path="/users/:author" />
+            <ArticlePage path="/articles/:id" /> */}
+            <Route component={NotFound} default />
           </Router>
-        </div> */}
+        </div>
         <Footer />
       </UserContext.Provider>
     </div>
