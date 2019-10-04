@@ -22,6 +22,16 @@ const App: React.FC = () => {
         <label>Current Author:</label>
         <UserSelect user={user} handleChange={onHandleChange} />
         <Link to={`/users/${user}`} className="title-link">User</Link>
+        <div className="nav" ><Navigation /></div>
+        {/* <div className="body">
+          <Router>
+            <ArticleList path="/topics/:topic" />
+            <UserPage path="/users/:author" />
+            <ArticleList path="/" />
+            <ArticlePage path="/articles/:id" />
+            <ErrorMsg default />
+          </Router>
+        </div> */}
         <Footer />
       </UserContext.Provider>
     </div>
