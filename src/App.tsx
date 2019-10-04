@@ -6,14 +6,18 @@ import { UserContext } from "./component/store/UserContext";
 import UserSelect from "./component/layout/UserSelect";
 
 const App: React.FC = () => {
-  const [user, setUser] = useState("jessjelly");
-  const onHandleChange = (e: React.ChangeEvent<HTMLSelectElement>) =>
-    setUser(e.target.value);
+  const [user, setUser] = useState<string | unknown>("jessjelly");
+  const onHandleChange = (
+    e: React.ChangeEvent<{
+      name?: string | undefined;
+      value: unknown | string;
+    }>
+  ) => setUser(e.target.value);
 
   return (
     <div className="App">
       <UserContext.Provider value={user}>
-        <Header/>
+        <Header />
         <label>Current Author:</label>
         <UserSelect user={user} handleChange={onHandleChange} />
         <Footer />
