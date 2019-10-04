@@ -23,7 +23,7 @@ function useFetch<T>(apiCall: () => Promise<T>) {
     apiCall()
       .then((response: T) => setResult({ status: "loaded", payload: response }))
       .catch((error: Error) => setResult({ status: "error", error }));
-  }, [apiCall]);
+  }, []);
 
   return result;
 }
