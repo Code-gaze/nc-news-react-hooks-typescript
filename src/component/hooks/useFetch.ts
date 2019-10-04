@@ -13,7 +13,7 @@ interface DataError {
 
 type Data<T> = DataLoading | DataLoaded<T> | DataError;
 
-function useFetch<T>(apiCall: () => Promise<T>) {
+function useFetch<T>(apiCall: () => Promise<T>, filter?: string) {
   const [result, setResult] = useState<Data<T>>({
     status: "loading"
   });
@@ -23,7 +23,7 @@ function useFetch<T>(apiCall: () => Promise<T>) {
     apiCall()
       .then((response: T) => setResult({ status: "loaded", payload: response }))
       .catch((error: Error) => setResult({ status: "error", error }));
-  }, [apiCall]);
+  }, [apiCall, filter]);
 
   return result;
 }

@@ -1,16 +1,25 @@
-import axios from 'axios';
+import axios from "axios";
 
 const request = axios.create({
- baseURL: "https://nc-news-rest-api.herokuapp.com/api"
-})
+  baseURL: "https://nc-news-rest-api.herokuapp.com/api"
+});
 
 export const getTopics = () => {
- return request.get('/topics').then(({ data }) => data.topics)
+  return request.get("/topics").then(({ data }) => data.topics);
 };
 
-// export const getArticles = (topic, author, sort_by, order, limit, p) => {
-//  return request.get(`/articles`, { params: { topic, author, sort_by, order, limit, p } }).then(({ data }) => data)
-// };
+export const getArticles = (
+  topic?: string,
+  author?: string,
+  sort_by?: string,
+  order?: "asc" | "desc",
+  limit?: number,
+  p?: number
+) => {
+  return request
+    .get(`/articles`, { params: { topic, author, sort_by, order, limit, p } })
+    .then(({ data }) => data);
+};
 
 // export const getUser = (username) => {
 //  return request.get(`/users/${username}`).then(({ data }) => data.user)
@@ -43,4 +52,3 @@ export const getTopics = () => {
 // export const deleteComment = (id) => {
 //  return request.delete(`/comments/${id}`)
 // };
-
