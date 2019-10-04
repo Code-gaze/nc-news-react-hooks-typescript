@@ -2,6 +2,7 @@ import React from 'react';
 import Style from './ArticleItem.module.css';
 import { Button } from '@material-ui/core';
 import { Link } from '@reach/router';
+import {article} from "../types/index"
 
 const ArticleItem = ({ article: { article_id, title, comment_count, topic, votes, created_at, author } }) => {
   return (

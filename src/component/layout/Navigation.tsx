@@ -3,14 +3,10 @@ import useFetch from "../hooks/useFetch";
 import { getTopics } from "../api";
 import { Link } from "@reach/router";
 import { CircularProgress } from "@material-ui/core";
-
-export interface topic {
-  slug: string;
-  description: string;
-}
+import {ITopic} from "../types/index"
 
 const Navigation: React.FunctionComponent = () => {
-  const data = useFetch<topic[]>(getTopics);
+  const data = useFetch<ITopic[]>(getTopics);
 
   return (
     <nav>
