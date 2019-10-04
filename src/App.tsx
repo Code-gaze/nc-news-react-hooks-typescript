@@ -4,7 +4,8 @@ import Footer from "./component/layout/Footer";
 import "./App.css";
 import { UserContext } from "./component/store/UserContext";
 import UserSelect from "./component/layout/UserSelect";
-import { Link, Router } from '@reach/router';
+import { Link, Router } from "@reach/router";
+import Navigation from "./component/layout/Navigation";
 
 const App: React.FC = () => {
   const [user, setUser] = useState<string | unknown>("jessjelly");
@@ -21,8 +22,12 @@ const App: React.FC = () => {
         <Header />
         <label>Current Author:</label>
         <UserSelect user={user} handleChange={onHandleChange} />
-        <Link to={`/users/${user}`} className="title-link">User</Link>
-        <div className="nav" ><Navigation /></div>
+        <Link to={`/users/${user}`} className="title-link">
+          User
+        </Link>
+        <div className="nav">
+          <Navigation />
+        </div>
         {/* <div className="body">
           <Router>
             <ArticleList path="/topics/:topic" />
