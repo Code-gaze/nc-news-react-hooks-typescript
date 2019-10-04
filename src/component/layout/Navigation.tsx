@@ -1,9 +1,6 @@
 import * as React from 'react';
 
-interface topic {
-    slug:string,
-    description:string
-}
+
 
 const Navigation: React.FunctionComponent= () => {
 
