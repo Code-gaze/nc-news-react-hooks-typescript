@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Header from "./component/layout/Header";
-import Footer from "./component/layout/Footer";
+import Footer from "./component/layout/Footer"
 import "./App.css";
 import { UserContext } from "./component/store/UserContext";
 import UserSelect from "./component/layout/UserSelect";
