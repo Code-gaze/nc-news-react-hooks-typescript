@@ -4,6 +4,7 @@ import Footer from "./component/layout/Footer";
 import "./App.css";
 import { UserContext } from "./component/store/UserContext";
 import UserSelect from "./component/layout/UserSelect";
+import { Link, Router } from '@reach/router';
 
 const App: React.FC = () => {
   const [user, setUser] = useState<string | unknown>("jessjelly");
@@ -20,6 +21,7 @@ const App: React.FC = () => {
         <Header />
         <label>Current Author:</label>
         <UserSelect user={user} handleChange={onHandleChange} />
+        <Link to={`/users/${user}`} className="title-link">User</Link>
         <Footer />
       </UserContext.Provider>
     </div>
