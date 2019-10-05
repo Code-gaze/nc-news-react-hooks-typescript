@@ -14,7 +14,6 @@ const App: React.FC = () => {
   const [user, setUser] = useState<string | unknown>("jessjelly");
   const onHandleChange = (
     e: React.ChangeEvent<{
-      name?: string | undefined;
       value: unknown | string;
     }>
   ) => setUser(e.target.value);
@@ -22,25 +21,25 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <UserContext.Provider value={user}>
-          <Header />
-          <label>Current Author:</label>
-          <UserSelect user={user} handleChange={onHandleChange} />
-          <Link to={`/users/${user}`} className="title-link">
-            User
-          </Link>
-          <div className="nav">
-            <Navigation />
-          </div>
-          <div className="body">
-            <Router>
-              <Route component={ArticleList} path="/" />
-              <Route component={ArticleList} path="/topics/:topic" />
-              {/* <UserPage path="/users/:author" />
+        <Header />
+        <label>Current Author:</label>
+        <UserSelect user={user} handleChange={onHandleChange} />
+        <Link to={`/users/${user}`} className="title-link">
+          User
+        </Link>
+        <div className="nav">
+          <Navigation />
+        </div>
+        <div className="body">
+          <Router>
+            <Route component={ArticleList} path="/" />
+            <Route component={ArticleList} path="/topics/:topic" />
+            {/* <UserPage path="/users/:author" />
             <ArticlePage path="/articles/:id" /> */}
-              <Route component={NotFound} default />
-            </Router>
-          </div>
-          <Footer />
+            <Route component={NotFound} default />
+          </Router>
+        </div>
+        <Footer />
       </UserContext.Provider>
     </div>
   );
