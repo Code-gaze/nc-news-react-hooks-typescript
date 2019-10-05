@@ -8,6 +8,7 @@ import { Link, Router } from "@reach/router";
 import Navigation from "./component/layout/Navigation";
 import NotFound from './component/error/NotFound';
 import Route from "./component/types/route"
+import ArticleList from "./component/article/ArticleList";
 
 const App: React.FC = () => {
   const [user, setUser] = useState<string | unknown>("jessjelly");
@@ -32,7 +33,7 @@ const App: React.FC = () => {
         </div>
         <div className="body">
           <Router>
-            <ArticleList path="/" />
+            <Route component={ArticleList} path="/" />
             {/* <ArticleList path="/topics/:topic" /> */}
             {/* <UserPage path="/users/:author" />
             <ArticlePage path="/articles/:id" /> */}
