@@ -34,7 +34,7 @@ const App: React.FC = () => {
         <div className="body">
           <Router>
             <Route component={ArticleList} path="/" />
-            {/* <ArticleList path="/topics/:topic" /> */}
+            <Route component={ArticleList} path="/topics/:topic" />
             {/* <UserPage path="/users/:author" />
             <ArticlePage path="/articles/:id" /> */}
             <Route component={NotFound} default />

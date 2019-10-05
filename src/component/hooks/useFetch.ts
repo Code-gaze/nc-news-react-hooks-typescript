@@ -13,17 +13,32 @@ interface DataError {
 
 type Data<T> = DataLoading | DataLoaded<T> | DataError;
 
-function useFetch<T>(apiCall: () => Promise<T>, filter?: string) {
+function useFetch<T>(
+  apiCall: (
+    topic?: "" | "cooking" | "coding" | "football",
+    author?: string,
+    sort_by?: string,
+    order?: "asc" | "desc",
+    limit?: number,
+    p?: number
+  ) => Promise<T>,
+  topic?: "" | "cooking" | "coding" | "football",
+  author?: string,
+  sort_by?: string,
+  order?: "asc" | "desc",
+  limit?: number,
+  p?: number
+) {
   const [result, setResult] = useState<Data<T>>({
     status: "loading"
   });
 
   useEffect(() => {
     setResult({ status: "loading" });
-    apiCall()
+    apiCall(topic, author, sort_by, order, limit, p)
       .then((response: T) => setResult({ status: "loaded", payload: response }))
       .catch((error: Error) => setResult({ status: "error", error }));
-  }, [apiCall, filter]);
+  }, [apiCall, topic, author, limit, order, p, sort_by]);
 
   return result;
 }

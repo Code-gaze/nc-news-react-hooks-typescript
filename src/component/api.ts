@@ -9,7 +9,7 @@ export const getTopics = () => {
 };
 
 export const getArticles = (
-  topic?: string,
+  topic?: "" | "cooking" | "coding" | "football",
   author?: string,
   sort_by?: string,
   order?: "asc" | "desc",

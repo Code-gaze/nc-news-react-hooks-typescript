@@ -11,17 +11,24 @@ import Page from "./Page";
 // import LimitSelect from '../button/LimitSelect';
 import { ARTICLE_SORT_CHART } from "../constant";
 
-interface IArticleListProps {}
+export interface IArticleListProps {
+    topic?: "" | "cooking" | "coding" | "football",
+    author?: string,
+    sort_by?: string,
+    order?: "asc" | "desc",
+    limit?: number,
+    p?: number
+}
 
-const ArticleList: React.FunctionComponent<IArticleListProps> = props => {
-  const data = useFetch<IArticles>(getArticles);
+const ArticleList: React.FunctionComponent<IArticleListProps> = ({topic, author, sort_by,order,limit,p}) => {
+    const data = useFetch<IArticles>(getArticles, topic, author, sort_by, order, limit, p);
   return (
     <div>
       {data.status === "loading" && <CircularProgress size={20} />}
       {data.status === "error" && <p>error: {data.error}</p>}
       <div className="article-sort-order"></div>
-      {articles &&
-        articles.articles.map(article => (
+      {data.status === "loaded" &&
+        data.payload.articles.articles.map(article => (
           <ArticleItem key={article.article_id} article={article} />
         ))}
     </div>
