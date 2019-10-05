@@ -5,12 +5,12 @@ const Header: React.FunctionComponent = () => {
   return (
     <header>
       <img src={logo} alt="title" className="logo" id="logo" />
-      <h2>
+      <h1>
         Nc News
         <span role="img" aria-label="say no evil">
           🙊️
         </span>
-      </h2>
+      </h1>
     </header>
   );
 };
