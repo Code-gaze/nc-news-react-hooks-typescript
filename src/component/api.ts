@@ -12,7 +12,7 @@ export const getArticles = (
   topic?: "" | "cooking" | "coding" | "football",
   author?: string,
   sort_by?: string,
-  order?: "asc" | "desc",
+  order?: string,
   limit?: number,
   p?: number
 ) => {

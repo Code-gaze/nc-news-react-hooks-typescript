@@ -23,7 +23,7 @@ class ArticleList extends Component {
     ...INITIAL_STATE
   };
   render() {
-    const { articles, loading,  sort_by, limit, p } = this.state;
+    const { articles, loading, sort_by, limit, p } = this.state;
     return (
       <div>
         {loading && (
