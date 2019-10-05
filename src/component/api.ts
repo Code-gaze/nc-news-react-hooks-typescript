@@ -31,9 +31,9 @@ export const getArticle = (article_id: string | number | undefined) => {
     .then(({ data }) => data.article);
 };
 
-// export const updateArticle = (id, body) => {
-//  return request.patch(`/articles/${id}`, body).then(({ data }) => data.article)
-// };
+export const updateArticle = (id: number, body: { inc_votes:number}) => {
+ return request.patch(`/articles/${id}`, body).then(({ data }) => data.article)
+};
 
 // export const addComment = (article_id, body) => {
 //  return request.post(`/articles/${article_id}/comments`, body).then(({ data }) => data.comment)
