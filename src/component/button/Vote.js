@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Button } from '@material-ui/core';
-import ErrorMsg from '../error/Error'
 
 const INITIAL_STATE = {
   vote: 0,
@@ -28,7 +27,7 @@ class Vote extends Component {
   render() {
     const { votes } = this.props;
     const { vote, error, loading } = this.state;
-    if (error) return <ErrorMsg error={error} />
+    if (error) return <p>something wrong ....</p>
     if (loading) return <p>...loading</p>
     return (
       <div className="vote-block">
