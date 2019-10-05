@@ -21,8 +21,17 @@ export interface IArticles {
   };
 }
 
-export interface IUser{
-    username: string;
-    name: string;
-    avatar_url: string;
+export interface IUser {
+  username: string;
+  name: string;
+  avatar_url: string;
+}
+
+export interface IComment {
+  comment_id: number;
+  article_id: number;
+  author: string;
+  body: string;
+  votes: number;
+  created_at: string;
 }
