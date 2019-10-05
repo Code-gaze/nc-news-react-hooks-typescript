@@ -8,6 +8,7 @@ import SortSelect from "../button/SortSelect";
 import ToggleButton from "../button/ToggleButton";
 import Page from "./Page";
 import LimitSelect from "../button/LimitSelect";
+import { Z_UNKNOWN } from "zlib";
 
 interface IArticleListProps {
   topic?: "cooking" | "coding" | "football";
@@ -22,17 +23,15 @@ const ArticleList: React.FunctionComponent<IArticleListProps> = ({
   const handlePageClick = (value: number): void => setP(value);
   const resetPage = (): void => setP(1);
   const handleLimitChange = (
-    e: React.ChangeEvent<{
-      value: number;
-    }>
-  ) => setLimit(e.target.value);
+    e: React.ChangeEvent<HTMLSelectElement>
+  ) => setLimit(parseInt(e.target.value));
   const handleSortChange = (
     e: React.ChangeEvent<{
       value: string | unknown;
     }>
   ) => setSort_by(e.target.value);
 
-  const [sort_by, setSort_by] = React.useState<string|unknown>("created_at");
+  const [sort_by, setSort_by] = React.useState<string | unknown>("created_at");
   const [order, setOrder] = React.useState("desc");
   const [limit, setLimit] = React.useState(6);
   const [p, setP] = React.useState(1);
