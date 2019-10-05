@@ -17,14 +17,14 @@ function useFetch<T>(
   apiCall: (
     topic?: "cooking" | "coding" | "football",
     author?: string,
-    sort_by?: string,
+    sort_by?: string|unknown,
     order?: string,
     limit?: number,
     p?: number
   ) => Promise<T>,
   topic?: "cooking" | "coding" | "football",
   author?: string,
-  sort_by?: string,
+  sort_by?: string|unknown,
   order?: string,
   limit?: number,
   p?: number,

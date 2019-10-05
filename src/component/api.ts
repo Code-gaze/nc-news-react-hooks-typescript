@@ -11,7 +11,7 @@ export const getTopics = () => {
 export const getArticles = (
   topic?: "" | "cooking" | "coding" | "football",
   author?: string,
-  sort_by?: string,
+  sort_by?: string | unknown,
   order?: string,
   limit?: number,
   p?: number
