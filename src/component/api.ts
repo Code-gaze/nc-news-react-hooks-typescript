@@ -21,9 +21,9 @@ export const getArticles = (
     .then(({ data }) => data);
 };
 
-// export const getUser = (username) => {
-//  return request.get(`/users/${username}`).then(({ data }) => data.user)
-// };
+export const getUser = (username:string) => {
+ return request.get(`/users/${username}`).then(({ data }) => data.user)
+};
 
 // export const getArticle = (article_id) => {
 //  return request.get(`/articles/${article_id}`).then(({ data }) => data.article)

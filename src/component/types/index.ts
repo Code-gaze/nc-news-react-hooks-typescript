@@ -20,3 +20,9 @@ export interface IArticles {
     total_count: number;
   };
 }
+
+export interface IUser{
+    username: string;
+    name: string;
+    avatar_url: string;
+}
