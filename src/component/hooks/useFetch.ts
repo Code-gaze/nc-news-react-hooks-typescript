@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-import { count } from "console";
 interface DataLoading {
   status: "loading";
 }
