@@ -21,13 +21,15 @@ export const getArticles = (
     .then(({ data }) => data);
 };
 
-export const getUser = (username:string) => {
- return request.get(`/users/${username}`).then(({ data }) => data.user)
+export const getUser = (username: string | number | undefined) => {
+  return request.get(`/users/${username}`).then(({ data }) => data.user);
 };
 
-// export const getArticle = (article_id) => {
-//  return request.get(`/articles/${article_id}`).then(({ data }) => data.article)
-// };
+export const getArticle = (article_id: string | number | undefined) => {
+  return request
+    .get(`/articles/${article_id}`)
+    .then(({ data }) => data.article);
+};
 
 // export const updateArticle = (id, body) => {
 //  return request.patch(`/articles/${id}`, body).then(({ data }) => data.article)

@@ -9,6 +9,7 @@ import Navigation from "./component/layout/Navigation";
 import NotFound from "./component/error/NotFound";
 import Route from "./component/types/route";
 import ArticleList from "./component/article/ArticleList";
+import UserPage from "./component/user/UserPage"
 
 const App: React.FC = () => {
   const [user, setUser] = useState<string | unknown>("jessjelly");
@@ -34,8 +35,8 @@ const App: React.FC = () => {
           <Router>
             <Route component={ArticleList} path="/" />
             <Route component={ArticleList} path="/topics/:topic" />
-            {/* <UserPage path="/users/:author" />
-            <ArticlePage path="/articles/:id" /> */}
+            <Route component={UserPage} path="/users/:author" />
+            {/* <ArticlePage path="/articles/:id" /> */}
             <Route component={NotFound} default />
           </Router>
         </div>
