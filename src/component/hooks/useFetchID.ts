@@ -14,8 +14,14 @@ interface DataError {
 type Data<T> = DataLoading | DataLoaded<T> | DataError;
 
 function useFetchID<T>(
-  apiCall: (ID: string | number | undefined) => Promise<T>,
-  ID: string | number | undefined
+  apiCall: (
+    ID: string | number | undefined,
+    sort_by?: string | unknown,
+    order?: string
+  ) => Promise<T>,
+  ID: string | number | undefined,
+  sort_by?: string | unknown,
+  order?: string
 ) {
   const [result, setResult] = useState<Data<T>>({
     status: "loading"
@@ -23,7 +29,7 @@ function useFetchID<T>(
 
   useEffect(() => {
     setResult({ status: "loading" });
-    apiCall(ID)
+    apiCall(ID, sort_by, order)
       .then((response: T) => setResult({ status: "loaded", payload: response }))
       .catch((error: Error) => setResult({ status: "error", error }));
   }, [apiCall, ID]);
