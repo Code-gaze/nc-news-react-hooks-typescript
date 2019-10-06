@@ -1,44 +1,37 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# A React Northcoders-News Client with React Hooks and Typescript
 
-## Available Scripts
+This is a refactoring of the nc-news project (https://github.com/taodtu/nc-news-rest-client) with **`Reack hooks`** and **`Typescript`**.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- All class components are transformed into **`functional component`** and all components, functions, hooks are written with **`typescript`**. **`Generic`** is used to reuse function as much as possible.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Custome react hooks **`useFetch`** extract all data fetching logic which greatly simplify the component code and reusable, reduce any component needing data fetching logic up to **`40`** lines, and use **`union type`** to provide extra type safety.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+- Implement **`Context`** and **`useReducer`** to mimic a **`Redux`** like global store for comment to handle fetch, add  and delete comments, which greatly reduce the commentList component from **`118`** lines to **`36`** lines, and replace the original **`Render Props`** and **`Higher Order Component`** pattern.
 
-### `npm test`
+- All the data manipulations on array and object are ensured **`not mutating`** the original data by using destructuring and spread operator. In addtional to fullfilling the northcoder project requirement, an UserPage is created for more advanced functionality.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Maximize **`component reuse`**, such as the voting button, toggle-button, article list,comment-list, sort-select and handler functions.
 
-### `npm run build`
+- Applying **`slot pattern`** and **`ContextAPI`** to avoid props drilling.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Implement **`optimistic response`** for the vote button.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+- Page-number style **`pagination`** implemented.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- React 16 with create-react-app --typescript.
 
-### `npm run eject`
+- Responsive.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Styling with [@material/ui v4.1.3](https://material-ui.com/).
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Routing with [@reach/router v1.1.0](https://reach.tech/router).
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Installation
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- git clone https://github.com/taodtu/nc-news-rest-client.git
+- cd nc-news-rest-client/nc-news-rest-client.
+- npm install.
+- npm start.
+- visit http://localhost:3000
