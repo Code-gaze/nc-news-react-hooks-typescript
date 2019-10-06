@@ -37,7 +37,7 @@ export const updateArticle = (id: number, body: { inc_votes: number }) => {
     .then(({ data }) => data.article);
 };
 
-export const addComment = (article_id: number, body: string) => {
+export const addComment = (article_id: number, body: {username: string; body:string}) => {
   return request
     .post(`/articles/${article_id}/comments`, body)
     .then(({ data }) => data.comment);

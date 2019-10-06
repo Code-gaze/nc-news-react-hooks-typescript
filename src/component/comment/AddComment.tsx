@@ -1,28 +1,35 @@
 import React, { useContext, useState } from "react";
 import { Button, TextField } from "@material-ui/core";
 import Style from "./AddComment.module.css";
-import { Store } from "../store/comments";
+import { Store, IAction, CommentsLoaded } from "../store/comments";
 import { UserContext } from "../store/UserContext";
 import { addComment } from "../api";
+import { IComment } from "../types";
 
-const AddComment = ({id}) => {
+interface IProps {
+  id: number;
+}
+
+const AddComment: React.FunctionComponent<IProps> = ({ id }) => {
   const { state, dispatch } = useContext(Store);
+  let castDispatch = dispatch as React.Dispatch<IAction>;
+  let castState = state as CommentsLoaded;
   let user = useContext(UserContext);
+  let castUser = user as string;
   const [text, setText] = useState("");
-  const handleChange = e => setText(e.target.value);
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
+    setText(e.target.value);
 
-  const onHandleSubmit = e => {
+  const onHandleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
-    addComment(id, { username: user, body: text }).then(comment => {
-      dispatch({
+    const body = { username: castUser, body: text };
+    addComment(id, body).then((comment: IComment) => {
+      castDispatch({
         type: "ADD_COMMENT",
-        payload: {
-          comments: [comment, ...state.comments],
-          status: "loaded"
-        }
+        payload: [comment, ...castState.payload]
       });
     });
-    setText('');
+    setText("");
   };
 
   return (

@@ -10,7 +10,7 @@ const CommentList = ({ id, getComments }) => {
     getComments(id).then(data => {
       dispatch({
         type: "FETCH_COMMENTS",
-        payload: { comments: data, status: "loaded" }
+        payload: { payload: data, status: "loaded" }
       });
     });
   }, [getComments, id]);
@@ -19,7 +19,7 @@ const CommentList = ({ id, getComments }) => {
       {state.status === "loading" && <LinearProgress />}
       <h3>Comments</h3>
       {state.status === "loaded" &&
-        state.comments.map(comment => (
+        state.payload.map(comment => (
           <Comment key={comment.comment_id} {...comment}>
             <DeleteComment
               comment_id={comment.comment_id}
