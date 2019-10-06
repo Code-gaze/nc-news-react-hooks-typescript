@@ -7,6 +7,7 @@ import Article from "./Article";
 import { StoreProvider} from '../store/comments';
 import CommentList from '../comment/CommentList';
 import { getCommentsByArticle } from '../api';
+import AddComment from "../comment/AddComment";
 
 interface IArticlePageProps {
     id?:number
@@ -22,6 +23,7 @@ const ArticlePage: React.FunctionComponent<IArticlePageProps> = ({id}) => {
             {data.status === "loaded" && <Article {...data.payload} />}
             <hr />
             <StoreProvider>
+                {id && <AddComment />}
                 {id && <CommentList id={id} getComments={getCommentsByArticle} />}
             </StoreProvider>
             <hr />
