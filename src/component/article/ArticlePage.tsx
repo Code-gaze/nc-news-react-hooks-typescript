@@ -23,7 +23,7 @@ const ArticlePage: React.FunctionComponent<IArticlePageProps> = ({id}) => {
             {data.status === "loaded" && <Article {...data.payload} />}
             <hr />
             <StoreProvider>
-                {id && <AddComment />}
+                {id && <AddComment id={id}/>}
                 {id && <CommentList id={id} getComments={getCommentsByArticle} />}
             </StoreProvider>
             <hr />
