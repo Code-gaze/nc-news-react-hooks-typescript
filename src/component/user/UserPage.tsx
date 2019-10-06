@@ -6,6 +6,9 @@ import { LinearProgress } from "@material-ui/core";
 import ToggleButton from "../button/ToggleButton";
 import ArticleList from "../article/ArticleList";
 import UserItem from "./UserItem";
+import { StoreProvider } from '../store/comments';
+import CommentList from '../comment/CommentList';
+import { getCommentsByUser } from '../api';
 
 interface IUserPageProps {
   author?: string;
@@ -33,11 +36,9 @@ const UserPage: React.FunctionComponent<IUserPageProps> = ({ author }) => {
         (ShowList === "Articles" ? (
           <ArticleList author={author} />
         ) : (
-          <p>in comment list</p>
-          //   <CommentListWithUser
-          //     id={user.username}
-          //     getComments={getCommentsByUser}
-          //   />
+          <StoreProvider>
+            {author && <CommentList id={author} getComments={getCommentsByUser} />}
+          </StoreProvider>
         ))}
     </div>
   );

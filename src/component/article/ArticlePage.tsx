@@ -21,9 +21,6 @@ const ArticlePage: React.FunctionComponent<IArticlePageProps> = ({id}) => {
             <h3>Article and Its Comments </h3>
             {data.status === "loaded" && <Article {...data.payload} />}
             <hr />
-            {/* <CommentListWithUser id={id} getComments={getCommentsByArticle}
-                render={handleSubmit => <AddComment onSubmit={handleSubmit} />}
-            /> */}
             <StoreProvider>
                 {id && <CommentList id={id} getComments={getCommentsByArticle} />}
             </StoreProvider>
