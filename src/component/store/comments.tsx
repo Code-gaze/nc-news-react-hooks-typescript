@@ -12,14 +12,16 @@ interface CommentsError {
   status: "error";
   error: Error;
 }
-
 interface IAction {
   type: string;
   payload: Comments;
 }
 
 type Comments = CommentsLoading | CommentsLoaded | CommentsError;
-
+type ContextProps = {
+  state:Comments,
+  dispatch: React.Dispatch<IAction>
+};
 export const Store = React.createContext<Partial<ContextProps>>({});
 
 const initialState: Comments = { status: "loading" };
@@ -36,12 +38,6 @@ function reducer(state: Comments, action: IAction) {
       return state;
   }
 }
-
-type ContextProps = {
-  state:Comments,
-  dispatch: React.Dispatch<IAction>
-};
-
 export function StoreProvider(props: { children: React.ReactNode; }) {
   const [state, dispatch] = React.useReducer(reducer, initialState);
   return <Store.Provider value={{ state, dispatch }}>{props.children}</Store.Provider>;
