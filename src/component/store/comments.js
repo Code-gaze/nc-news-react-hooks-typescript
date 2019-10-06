@@ -25,6 +25,8 @@ function reducer(state, action) {
       return { ...state, ...action.payload };
     case "DELETE_COMMENT":
       return { ...state, ...action.payload };
+    case "ADD_COMMENT":
+      return { ...state, ...action.payload };
     default:
       return state;
   }
