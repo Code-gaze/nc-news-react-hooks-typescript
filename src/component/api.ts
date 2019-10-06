@@ -44,22 +44,18 @@ export const addComment = (article_id: number, body: string) => {
 };
 
 export const getCommentsByArticle = (
-  article_id: number,
-  sort_by: string,
-  order: string
+  article_id: number|string,
 ) => {
   return request
-    .get(`/articles/${article_id}/comments`, { params: { sort_by, order } })
+    .get(`/articles/${article_id}/comments`)
     .then(({ data }) => data.comments);
 };
 
 export const getCommentsByUser = (
-  username: string,
-  sort_by: string,
-  order: string
+  username: string |number,
 ) => {
   return request
-    .get(`/users/${username}/comments`, { params: { sort_by, order } })
+    .get(`/users/${username}/comments`)
     .then(({ data }) => data.comments);
 };
 

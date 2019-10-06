@@ -4,6 +4,9 @@ import { LinearProgress } from "@material-ui/core";
 import {  getArticle} from '../api';
 import {IArticle} from "../types/index";
 import Article from "./Article";
+import { StoreProvider} from '../store/comments';
+import CommentList from '../comment/CommentList';
+import { getCommentsByArticle } from '../api';
 
 interface IArticlePageProps {
     id?:number
@@ -21,6 +24,9 @@ const ArticlePage: React.FunctionComponent<IArticlePageProps> = ({id}) => {
             {/* <CommentListWithUser id={id} getComments={getCommentsByArticle}
                 render={handleSubmit => <AddComment onSubmit={handleSubmit} />}
             /> */}
+            <StoreProvider>
+                {id && <CommentList id={id} getComments={getCommentsByArticle} />}
+            </StoreProvider>
             <hr />
         </div>
     );
