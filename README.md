@@ -1,4 +1,4 @@
-# A React Northcoders-News Client with React Hooks and Typescript
+# A Front-end practice reference with React Hooks and Typescript
 
 This is a refactoring of the nc-news project (https://github.com/taodtu/nc-news-rest-client) with **`Reack hooks`** and **`Typescript`**.
 
