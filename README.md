@@ -8,7 +8,7 @@ This is a refactoring of the nc-news project (https://github.com/taodtu/nc-news-
 
 - Custome react hooks **`useFetch`** extract all data fetching logic which greatly simplify the component code and reusable, reduce any component needing data fetching logic up to **`40`** lines, and use **`union type`** to provide extra type safety.
 
-- Implement **`Context`** and **`useReducer`** to mimic a **`Redux`** like global store for comment to handle fetch, add  and delete comments, which greatly reduce the commentList component from **`118`** lines to **`36`** lines, and replace the original **`Render Props`** and **`Higher Order Component`** pattern.
+- Implement **`Context`** and **`useReducer`** to mimic a **`Redux`** like global store for comment to handle fetch, add  and delete comments, which reduce the commentList component from **`118`** lines to **`36`** lines, and replace the original **`Render Props`** and **`Higher Order Component`** pattern.
 
 - All the data manipulations on array and object are ensured **`not mutating`** the original data by using destructuring and spread operator. In addtional to fullfilling the northcoder project requirement, an UserPage is created for more advanced functionality.
 
