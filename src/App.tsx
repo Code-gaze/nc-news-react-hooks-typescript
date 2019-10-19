@@ -13,12 +13,12 @@ import UserPage from "./component/user/UserPage";
 import ArticlePage from "./component/article/ArticlePage";
 
 const App: React.FC = () => {
-  const [user, setUser] = useState<string | unknown>("jessjelly");
+  const [user, setUser] = useState("jessjelly");
   const onHandleChange = (
     e: React.ChangeEvent<{
       value: unknown | string;
     }>
-  ) => setUser(e.target.value);
+  ) => setUser(e.target.value as string);
 
   return (
     <div className="App">
