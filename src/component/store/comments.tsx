@@ -1,12 +1,12 @@
 import { IComment } from "../types/index";
 import React from "react";
 
-interface CommentsLoading {
+export interface CommentsLoading {
   status: "loading";
 }
 export interface CommentsLoaded {
   status: "loaded";
-  payload: IComment[];
+  comments: IComment[];
 }
 interface CommentsError {
   status: "error";
@@ -14,7 +14,7 @@ interface CommentsError {
 }
 export interface IAction {
   type: string;
-  payload: IComment[];
+  payload: Comments;
 }
 
 type Comments = CommentsLoading | CommentsLoaded | CommentsError;
@@ -30,9 +30,9 @@ function reducer(state: Comments, action: IAction) {
     case "FETCH_COMMENTS":
       return { ...state, ...action.payload };
     case "DELETE_COMMENT":
-      return { ...state, payload: action.payload };
+      return { ...state, ...action.payload };
     case "ADD_COMMENT":
-      return { ...state, payload:action.payload };
+      return { ...state, ...action.payload };
     default:
       return state;
   }

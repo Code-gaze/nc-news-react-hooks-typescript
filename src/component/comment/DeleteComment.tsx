@@ -21,9 +21,12 @@ const DeleteComment: React.FunctionComponent<IProps> = ({
     deleteComment(id).then(() => {
       (dispatch as React.Dispatch<IAction>)({
         type: "DELETE_COMMENT",
-        payload: (state as CommentsLoaded).payload.filter(
-          (comment: IComment) => comment.comment_id !== id
-        )
+        payload: {
+          comments: (state as CommentsLoaded).comments.filter(
+            (comment: IComment) => comment.comment_id !== id
+          ),
+          status: "loaded"
+        }
       });
     });
   };

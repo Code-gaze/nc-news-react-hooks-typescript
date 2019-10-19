@@ -24,7 +24,7 @@ const AddComment: React.FunctionComponent<IProps> = ({ id }) => {
     addComment(id, body).then((comment: IComment) => {
       (dispatch as React.Dispatch<IAction>)({
         type: "ADD_COMMENT",
-        payload: [comment, ...(state as CommentsLoaded).payload]
+        payload: { comments: [comment, ...(state as CommentsLoaded).comments], status:"loaded"}
       });
     });
     setText("");
