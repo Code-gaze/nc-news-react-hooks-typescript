@@ -12,8 +12,6 @@ interface IProps {
 
 const AddComment: React.FunctionComponent<IProps> = ({ id }) => {
   const { state, dispatch } = useContext(Store);
-  let castDispatch = dispatch as React.Dispatch<IAction>;
-  let castState = state as CommentsLoaded;
   let user = useContext(UserContext);
   let castUser = user as string;
   const [text, setText] = useState("");
@@ -24,9 +22,9 @@ const AddComment: React.FunctionComponent<IProps> = ({ id }) => {
     e.preventDefault();
     const body = { username: castUser, body: text };
     addComment(id, body).then((comment: IComment) => {
-      castDispatch({
+      (dispatch as React.Dispatch<IAction>)({
         type: "ADD_COMMENT",
-        payload: [comment, ...castState.payload]
+        payload: [comment, ...(state as CommentsLoaded).payload]
       });
     });
     setText("");

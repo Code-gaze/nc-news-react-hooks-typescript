@@ -15,15 +15,13 @@ const DeleteComment: React.FunctionComponent<IProps> = ({
   author
 }) => {
   const { state, dispatch } = useContext(Store);
-  let castDispatch = dispatch as React.Dispatch<IAction>;
-  let castState = state as CommentsLoaded;
   let user = useContext(UserContext);
 
   const handleDelete = (id: number) => {
     deleteComment(id).then(() => {
-      castDispatch({
+      (dispatch as React.Dispatch<IAction>)({
         type: "DELETE_COMMENT",
-        payload: castState.payload.filter(
+        payload: (state as CommentsLoaded).payload.filter(
           (comment: IComment) => comment.comment_id !== id
         )
       });
