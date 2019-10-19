@@ -3,7 +3,6 @@ import { Button } from "@material-ui/core";
 import { Store, IAction, CommentsLoaded } from "../store/comments";
 import { UserContext } from "../store/UserContext";
 import { deleteComment } from "../api";
-import { IComment } from "../types/index";
 
 interface IProps {
   comment_id: number;
@@ -23,7 +22,7 @@ const DeleteComment: React.FunctionComponent<IProps> = ({
         type: "DELETE_COMMENT",
         payload: {
           comments: (state as CommentsLoaded).comments.filter(
-            (comment: IComment) => comment.comment_id !== id
+            comment => comment.comment_id !== id
           ),
           status: "loaded"
         }
