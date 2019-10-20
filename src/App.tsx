@@ -16,7 +16,7 @@ const App: React.FC = () => {
   const [user, setUser] = useState("jessjelly");
   const onHandleChange = (
     e: React.ChangeEvent<{
-      value: unknown | string;
+      value: unknown ;
     }>
   ) => setUser(e.target.value as string);
 

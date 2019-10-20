@@ -4,7 +4,7 @@ import { Select, MenuItem } from '@material-ui/core';
 interface IUserSelectProps {
   user: string | unknown;
   handleChange: (event: React.ChangeEvent<{
-    value: unknown | string;
+    value: unknown ;
   }>) => void;
 }
 
